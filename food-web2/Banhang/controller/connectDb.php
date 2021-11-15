@@ -357,6 +357,48 @@
        
        return $result;
     }
+    function CheckExistAccount($username,$password){
+        global $conn;
+        connect_db();
+        $sql="SELECT * FROM accountkh
+            WHERE TK='$username' and 
+            MK='$password'
+            ";
+       $data = mysqli_query($conn,$sql);
+       $result = array();
+       if($data && mysqli_num_rows($data)>0){
+           $row = mysqli_fetch_assoc($data);
+           $result = $row;
+       }
+       
+       return $result;
+    }
+    function CheckExistCustomer($username, $phonenumber){
+        global $conn;
+        connect_db();
+        $sql="SELECT * FROM accountkh a inner join khachhang b
+            WHERE a.TK='$username' and
+            b.TK = a.TK and
+            b.SoDienThoai ='$phonenumber'
+            ";
+       $data = mysqli_query($conn,$sql);
+       $result = array();
+       if($data && mysqli_num_rows($data)>0){
+           $row = mysqli_fetch_assoc($data);
+           $result = $row;
+       }
+       return $result;
+    }
+    function UpdatePassword($username,$password){
+        global $conn;
+        connect_db();
+        $sql = "UPDATE accountkh SET
+        MK = '$password'
+        WHERE TK='$username'
+        ";
+        $query = mysqli_query($conn, $sql);
+        return $query;
+    }
     function CreateCustomer($iduser, $username, $fullname, $phonenumber){
         global $conn;
         connect_db();

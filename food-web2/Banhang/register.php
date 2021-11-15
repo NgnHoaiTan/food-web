@@ -103,6 +103,9 @@
                     <button name="login-guest" id="login-guest"><a href="index.php">Access with guest user</a></button>
                 </div> 
                 <br>
+                <div class="signup_link">
+                    <a href="login.php">Login</a>
+                </div>
             
                 
                 

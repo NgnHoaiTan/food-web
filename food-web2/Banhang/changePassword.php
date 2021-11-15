@@ -4,27 +4,24 @@
     $error='';
     $user;
     $admin;
-    if(isset($_SESSION['user'])){
-        header("location:index.php");
-    }
-    else{
-        if(isset($_POST['submitlogin'])){
-            if(!empty($_POST['username']) && !empty($_POST['password'])){
-                $username = $_POST['username'];
-                $password = $_POST['password'];
-                $user = verifyAccountUser($username,$password);
+    $result="";
+    
+    if(!empty($_POST['submitchange'])){
+        $username = $_POST['username'];
+        $oldpassword = $_POST['oldpassword'];
+        $newpassword = $_POST['newpassword'];
+        $checkExistAccount = CheckExistAccount($username,$oldpassword);
+        if($checkExistAccount){
+            
+            $updateSuccess=0;
+            $updateSuccess = UpdatePassword($username,$newpassword);
+            if($updateSuccess){
+                $result ="Thay đổi mật khẩu thành công.";
                 
-                if(!empty($user)){
-                    $_SESSION['user'] = $username;
-                    header("location:index.php");
-                }
-                else{
-                    $error='User doesn\'t exist, please check again';
-                }
             }
-            else{
-                $error='Username or Password is invalid';
-            }
+        }
+        else{
+            $error = "Người dùng không tồn tại, xin kiểm tra lại thông tin";
         }
     }
 
@@ -36,7 +33,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Change password</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600&display=swap" rel="stylesheet">
@@ -55,8 +52,15 @@
         <img src="./image/background/background_login.jpg" alt="" id="bglogin">
         
         <div class="login-form-wrapper">
-            <form action="login.php" method="POST" id="form-login">
-                <h1>Login</h1>
+            <form action="changePassword.php" method="POST" id="form-login">
+                    
+                <div class="error-login">
+                    <p><?php echo $error  ?></p>
+                </div>
+                <div class="error-login">
+                    <p><?php echo $result  ?></p>
+                </div>
+                <h1>Change Password</h1>
                 <br>
                 <div class="row-form-login">
                     <input type="text" name="username" id="username"autocomplete = "off">    
@@ -64,21 +68,20 @@
                     <label for="">Username</label><br>
                     
                 </div>
-                <br>
-                <div class="row-form-login">
-
-                    <input type="password" name="password" id="adminpassword" autocomplete = "off">
+                
+                <div class="row-form-signup">
+                    <input type="password" name="oldpassword" id="oldpassword"autocomplete = "off">    
                     <span></span>
-                    <label for="">Password</label><br>
-                    
+                    <label for="">Old password</label><br>    
                 </div>
-                <div class="row row-justify-around">
-                    <div class="forgot-password"><a href="forgotPassword.php">Forgot Password?</a></div>
-                    <div class="forgot-password"><a href="changePassword.php">Change password</a></div>
+                <div class="row-form-signup">
+                    <input type="password" name="newpassword" id="newpassword"autocomplete = "off">    
+                    <span></span>
+                    <label for="">New password</label><br>    
                 </div>
                 
                 <div class="submit-login">
-                    <input type="submit" name="submitlogin" id="submitlogin" value="Login">
+                    <input type="submit" name="submitchange" id="submitlogin" value="Change">
                 </div>  
                 <div class="login-guest">
                     <button name="login-guest" id="login-guest"><a href="index.php">Access with guest user</a></button>
@@ -86,12 +89,10 @@
                 <br>
                 <br>
                 <div class="signup_link">
-                    <a href="register.php">Signup</a>
+                    <a href="login.php">Login</a>
                 </div>
-                
-                <div class="error-login">
-                    <p><?php echo $error  ?></p>
-                </div>
+                <br>
+            
                 
             </form>
         </div>
