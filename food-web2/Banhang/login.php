@@ -82,7 +82,7 @@
                 <br>
                 <br>
                 <div class="signup_link">
-                    <a href="#">Signup</a>
+                    <a href="register.php">Signup</a>
                 </div>
                 
                 <div class="error-login">

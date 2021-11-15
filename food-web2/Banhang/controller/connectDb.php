@@ -328,6 +328,50 @@
         
         return $result;
     }
+    // -------------------------Register-----------------------------------
+    function Register($username, $password){
+        global $conn;
+        connect_db();
+        $sql="INSERT INTO accountkh(TK,MK) 
+            values(
+                '$username',
+                '$password'   
+            )";
+        
+        $quey = mysqli_query($conn, $sql);
+       
+        return $quey;
+    }
+    function CheckExistusername($username){
+        global $conn;
+        connect_db();
+        $sql="SELECT * FROM accountkh
+            WHERE TK='$username'
+            ";
+       $data = mysqli_query($conn,$sql);
+       $result = array();
+       if($data && mysqli_num_rows($data)>0){
+           $row = mysqli_fetch_assoc($data);
+           $result = $row;
+       }
+       
+       return $result;
+    }
+    function CreateCustomer($iduser, $username, $fullname, $phonenumber){
+        global $conn;
+        connect_db();
+        $sql="INSERT INTO khachhang(MSKH,TK,HoTenKH, SoDienThoai) 
+            values(
+                '$iduser',
+                '$username',
+                '$fullname',
+                '$phonenumber'   
+            )";
+        
+        $quey = mysqli_query($conn, $sql);
+       
+        return $quey;
+    }
     // ------------------------ PROFILE ------------------------------
     function getAddressByUser($MSKH)
     {

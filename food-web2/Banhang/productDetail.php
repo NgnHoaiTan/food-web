@@ -196,78 +196,7 @@
                         
                     <br>
                     <div class="feedback-list-wrapper" id="fetch-list-feedback">
-                        <!-- <div class="feedback-wrapper">
-                            <div class="avt-user-feedback">
-                                <div class="border-image">
-                                    <img src="./image/user1.be89a16.png" alt="avt-user">
-                                </div>
-                            </div>
-                            <div class="feedback-detail">
-                                <div class="name-user">
-                                    <p>Sara Anela</p>
-                                </div>
-                                <div class="feedback-rating">
-                                <div class="row">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                </div>
-                                <div class="feedback-content">
-                                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Cras ultricies ligula sed magna dictum porta. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="feedback-wrapper">
-                            <div class="avt-user-feedback">
-                                <div class="border-image">
-                                    <img src="./image/user1.be89a16.png" alt="avt-user">
-                                </div>
-                            </div>
-                            <div class="feedback-detail">
-                                <div class="name-user">
-                                    <p>Sara Anela</p>
-                                </div>
-                                <div class="feedback-rating">
-                                <div class="row">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                </div>
-                                <div class="feedback-content">
-                                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Cras ultricies ligula sed magna dictum porta. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="feedback-wrapper">
-                            <div class="avt-user-feedback">
-                                <div class="border-image">
-                                    <img src="./image/user1.be89a16.png" alt="avt-user">
-                                </div>
-                            </div>
-                            <div class="feedback-detail">
-                                <div class="name-user">
-                                    <p>Sara Anela</p>
-                                </div>
-                                <div class="feedback-rating">
-                                <div class="row">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                </div>
-                                <div class="feedback-content">
-                                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Cras ultricies ligula sed magna dictum porta. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus magna justo.</p>
-                                </div>
-                            </div>
-                        </div> -->
+                       <!-- fetch feedback here -->
                     </div>
                     
                 </div>
