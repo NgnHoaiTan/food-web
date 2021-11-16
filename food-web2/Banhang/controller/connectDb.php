@@ -1,7 +1,7 @@
 <?php
     global $conn;
     header("Content-type: text/html; charset=utf-8");
-    mysqli_set_charset($conn, 'UTF8');
+    
     function connect_db(){
         $localhost='localhost';
         $username='root';
