@@ -108,7 +108,7 @@
                     
                     <div class="title-checkout">Thanh toán</div>
                     <h3>Thông tin khách hàng</h3>
-                    <form action="shoppingCart.php" method="POST">
+                    <form action="shoppingCart.php" method="POST"  name="cartform">
                     <?php if(empty($user)) {?>
                         <div class="form-row-checkout">
                             <label for="namecustomer">Họ tên</label>
@@ -136,7 +136,7 @@
                                 <option value="An Giang" class="option-address">An Giang</option>
                             </select> -->
                             
-                            <textarea name="address" id="address" cols="30" rows="5" class="form-info-input-cart w-input-9"></textarea>
+                            <textarea name="address" id="address" cols="30" rows="5" class="form-info-input-cart w-input-9" required></textarea>
                         </div>
                         <?php }
                         else{ ?>
@@ -163,7 +163,7 @@
                             <div class="form-row-checkout">
                                 <label for="address">Địa chỉ</label>
                                 <select name="address" id="address" class="select-address">
-                                    <option value="An Giang" class="option-address">Chọn địa chỉ</option>
+                                    <option value="" class="option-address">Chọn địa chỉ</option>
                                     <?php if(!empty($addressfetch)){
                                         foreach($addressfetch as $item){
                                         ?>
@@ -180,14 +180,8 @@
                             <p>Tạm tính:</p>
                             <p>0</p>
                         </div>
-                        <div class="fee-of-ship row row-justify-between list-checkout">
-                            <p>Phí giao hàng:</p>
-                            <p>0</p>
-                        </div>
-                        <div class="row row-justify-between">
-                            <input type="text" name="code-discount" id="code-discount" placeholder="Nhập mã giảm giá">
-                            <button type="button" id="apply-discount" >ÁP DỤNG</button>
-                        </div>
+                        
+                       
                         
                         <div class="total-sum row row-justify-between">
                             <p>Tổng cộng:</p>
@@ -287,25 +281,36 @@
                             <p>Tạm tính:</p>
                             <p><?php echo $_POST['sumSubtotal']  ?></p>
                         </div>
-                        <div class="fee-of-ship row row-justify-between list-checkout">
-                            <p>Phí giao hàng:</p>
-                            <p>18000</p>
+                        <div class="row row-justify-between list-checkout">
+                            <p>Giảm giá:</p>
+                            <?php if(!empty($_SESSION['user'])){ ?>
+                                <p>voucher giảm giá 10%</p>
+                            <?php }else {?>
+                                <p><a href="login.php">Đăng nhập</a>/<a href="register.php">Đăng ký</a> ngay để được nhận voucher</p>
+                            <?php } ?>
                         </div>
-                        <div class="row row-justify-between">
-                            <input type="text" name="code-discount" id="code-discount" placeholder="Nhập mã giảm giá">
-                            <button type="button" id="apply-discount" >ÁP DỤNG</button>
-                        </div>
+                       
                         
                         <div class="total-sum row row-justify-between">
                             <p>Tổng cộng:</p>
                             <div class="price-total-checkout">
-                                <p><?php echo $_POST['sumSubtotal'] + 18000  ?></p>
-                                
+                                <?php if(!empty($_SESSION['user'])){ ?>
+                                    <p>
+                                        <?php 
+                                            $tmpsum = $_POST['sumSubtotal'];
+                                            $sumsubtotal = $tmpsum - ceil($tmpsum*0.1);
+                                            echo $sumsubtotal; 
+                                        
+                                        ?>
+                                    </p>
+                                <?php }else{ ?>
+                                    <p><?php echo $_POST['sumSubtotal'] ?></p>
+                                <?php } ?>
                                 <p>Đã bao gồm VAT(nếu có)</p>
                             </div>
                         </div>
                         
-                        <input type="hidden" name="tongia" value="<?php echo $_POST['sumSubtotal']+18000?>">
+                        <input type="hidden" name="tongia" value="<?php echo $_POST['sumSubtotal']?>">
                         <?php 
                         
                             $_SESSION['list_cart_checkout'] = $_POST['list_product']

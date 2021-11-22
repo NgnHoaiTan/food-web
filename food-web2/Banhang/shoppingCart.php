@@ -23,7 +23,7 @@
             $madc = uniqid('guestDC-',false);
             
             for($i=0;$i< count($list_cart_product);$i++){
-                var_dump($list_cart_product[$i]) ;
+                
                 //tao thong tin khach hang 
                     $fax = isset($_POST['fax']) ? $_POST['fax'] : null;
                     $company = isset($_POST['company']) ? $_POST['company'] : null;                
@@ -38,9 +38,9 @@
                 //them vao table dat hang
                     $sodondh = uniqid('DH-',false);
                     $ngaydh=date("Y-m-d");
-                    $ngaygh=date('Y-m-d', strtotime($ngaydh. ' + 5 days'));
+                    
                     $trangthaidh = 0;
-                    InsertOrder($sodondh,$mskh,$ngaydh,$ngaygh,$trangthaidh);
+                    InsertOrder($sodondh,$mskh,$ngaydh,$trangthaidh);
 
                 //lay sodondh tu dat hang them vao chi tiet dat hang
                     $quantity =$list_cart_product[$i]['quantity'];
@@ -67,7 +67,7 @@
             $madc = $_POST['address'];
             
             for($i=0;$i< count($list_cart_product);$i++){
-                var_dump($list_cart_product[$i]) ;
+                
                 //tao thong tin khach hang 
                     $fax = isset($_POST['fax']) ? $_POST['fax'] : null;
                     $company = isset($_POST['company']) ? $_POST['company'] : null;                
@@ -79,16 +79,21 @@
                 //them vao table dat hang
                     $sodondh = uniqid('DH-',false);
                     $ngaydh=date("Y-m-d");
-                    $ngaygh=date('Y-m-d', strtotime($ngaydh. ' + 5 days'));
+                   
                     $trangthaidh = 0;
-                    InsertOrder($sodondh,$mskh,$ngaydh,$ngaygh,$trangthaidh);
+                    InsertOrder($sodondh,$mskh,$ngaydh,$trangthaidh);
 
                 //lay sodondh tu dat hang them vao chi tiet dat hang
                     $quantity =$list_cart_product[$i]['quantity'];
-                    $sumprice = $list_cart_product[$i]['subtotal'];
-                    $giamgia =  isset($_POST['giamgia']) ? $_POST['giamgia'] : 0;
+                    $giamgia =  10;
+                    $tmpsumprice = (int)$list_cart_product[$i]['subtotal'];
+                    $sumprice = ceil($tmpsumprice - $tmpsumprice*0.1);
+                    
                     $mshh = $list_cart_product[$i]['id_product'];
                     InsertOrderDetail($sodondh,$mshh,$quantity,$sumprice,$giamgia,$phonenumber,$madc);
+                    $product = getProductById($mshh);
+                    $newquantity = $product['SoLuongHang'] - $quantity;
+                    UpdateQuantity($newquantity,$mshh);
                 if(!empty($_SESSION['cart'])){
                     for($j=0;$j<count($_SESSION['cart']);$j++){
                         if($_SESSION['cart'][$j]['id_product'] == $mshh)
@@ -109,12 +114,12 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shopping Cart</title>
 
     <!-- style -->
     <link rel="stylesheet" href="./assets/base.css">
@@ -149,7 +154,7 @@
                             <a href="index.php">Homepage</a>
                         </li>
                         <li class="navbar-list-item">
-                            <a href="product.php">Shop</a>
+                            <a href="product.php">Food</a>
                         </li>
                         
                     </ul>
@@ -181,7 +186,10 @@
             </div>
         </div>
     </header>
-    <h1 class="shopping-cart-title">SHOPPING CART</h1>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="container--cart row row-justify-evenly"  id="result-fetch-cart">
     
        
@@ -256,7 +264,7 @@
                     
                 }
             localStorage.setItem('checked-in-car',JSON.stringify(listitem));
-
+            console.log(localStorage);
             // Chuyển hướng thanh toán
             var listproduct = JSON.parse(localStorage.getItem('checked-in-car'))
             
@@ -325,6 +333,7 @@
                 }
             })
         })
+        
         
     </script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js">       

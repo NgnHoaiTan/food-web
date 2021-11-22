@@ -135,9 +135,9 @@
         $sql = "SELECT * FROM hanghoa a INNER JOIN loaihanghoa b,hinhhanghoa c WHERE 
             a.MSHH='$product_id'
             and b.MaLoaiHang = a.MaLoaiHang 
-            or c.MSHH = a.MSHH 
+            and c.MSHH = a.MSHH 
             ";
-        echo $sql;
+        
         $data = mysqli_query($conn, $sql);
         $result = array();
         if($data && mysqli_num_rows($data)>0){
@@ -332,6 +332,19 @@
         
         return $result;
     }
+    function GetAdminById($id_admin){
+        global $conn;
+        connect_db();
+        $sql = "SELECT * FROM nhanvien WHERE MSNV='$id_admin'";
+        $data = mysqli_query($conn,$sql);
+        $result = array();
+        if($data && mysqli_num_rows($data)>0){
+            $row = mysqli_fetch_assoc($data);
+            $result = $row;
+        }
+        
+        return $result;
+    }
     // <!------------------- Đơn hàng ---------------------->
 
     function getAllOrder(){
@@ -346,13 +359,50 @@
         }
         return $result;
     }
-    function ApproveOrder($id_order,$state, $staff)
+    function getOrderById($orderid){
+        global $conn;
+        connect_db();
+        $sql = "SELECT * FROM dathang WHERE SoDonDH='$orderid'";
+        $data = mysqli_query($conn, $sql);
+        $result = array();
+        if($data && mysqli_num_rows($data)>0){
+            $row = mysqli_fetch_assoc($data);
+            $result = $row;
+        }
+        return $result;
+    }
+    function getOrderDetailById($orderid){
+        global $conn;
+        connect_db();
+        $sql = "SELECT * FROM chitietdathang WHERE SoDonDH='$orderid'";
+        $data = mysqli_query($conn, $sql);
+        $result = array();
+        if($data && mysqli_num_rows($data)>0){
+            $row = mysqli_fetch_assoc($data);
+            $result = $row;
+        }
+        return $result;
+    }
+    function getAddressOrder($addressid){
+        global $conn;
+        connect_db();
+        $sql = "SELECT * FROM diachikh WHERE MaDC='$addressid'";
+        $data = mysqli_query($conn, $sql);
+        $result = array();
+        if($data && mysqli_num_rows($data)>0){
+            $row = mysqli_fetch_assoc($data);
+            $result = $row;
+        }
+        return $result;
+    }
+    function ApproveOrder($id_order,$state, $staff, $ngaygh)
     {
         global $conn;
         connect_db();
         $sql = "UPDATE dathang SET
         TrangThaiDH = $state,
-        MSNV= '$staff'
+        MSNV= '$staff',
+        NgayGH='$ngaygh'
         WHERE SoDonDH = '$id_order'
         ";
         $query = mysqli_query($conn, $sql);

@@ -15,12 +15,12 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>List Product</title>
 
     <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,10 +76,7 @@
     <div class="wrapper">
         <div class="top--wrapper">
             <div class="navbar--top">
-                <div class="navbar--top__search">
-                    <input type="text" name="search" id="search">
-                    <button class="btn btn--search">Tìm tên sản phẩm</button>
-                </div>
+                
                 <div class="navbar--top__admin">
                     <?php if(!empty($admininfo)) { ?>
                         <p><?php echo $admininfo['HoTenNV'] ?></p>    
@@ -93,7 +90,7 @@
             </div>
         </div>
         <div class="main-wrapper">
-            <h1 class="title--product title-style">Products</h1>
+            <h1 class="title--product title-style">Danh sách sản phẩm</h1>
             <!-- <button class="btn btn__add"><a href="addProduct.php">Thêm sản phẩm</a></button> -->
             <button class="btn btn__add"><a href="addProduct.php">Thêm sản phẩm</a></button>
             <div class="main--wrapper__product" >

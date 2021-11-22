@@ -42,7 +42,7 @@
                         </a>
                         
                                                      
-                        <button class="btn_buy-product">Mua hàng</button>
+                        <button class="btn_buy-product"><a href="checkout.php?id=<?php echo $item['MSHH'] ?>">Mua hàng</a></button>
                         <button class="btn_add-to-cart add-cart" onclick="ShowSuccessToast()" id-product="<?php echo $item['MSHH'] ?>"><i class="fas fa-cart-plus"></i></button> 
                     </div>
                         

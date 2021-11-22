@@ -26,6 +26,8 @@
 
 ?>
 <!DOCTYPE html>
+<html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
@@ -64,7 +66,7 @@
                             <a href="index.php">Homepage</a>
                         </li>
                         <li class="navbar-list-item">
-                            <a href="product.php">Shop</a>
+                            <a href="product.php">Food</a>
                         </li>
                         
                     </ul>
@@ -202,7 +204,7 @@
                                         <?php 
                                             $productInOrder = getMImagebyIdproduct($order['MSHH']);
                                             if(!empty($productInOrder)){  ?>
-                                            <img src="../../../b1805914_NguyenHoaiTan/Admin/image/upload/<?php echo $productInOrder[0]['TenHinh'] ?>" alt="">
+                                            <img src="../../../PTPMTN/food-web2/Admin/image/upload/<?php echo $productInOrder[0]['TenHinh'] ?>" alt="">
                                         
                                         <?php } ?>
                                     </div>
@@ -211,8 +213,8 @@
                                         echo $product_order['TenHH'] ?></p>
                                         <p>Mã đơn hàng: <?php echo $order['SoDonDH'] ?></p>
                                         <p>Số lượng: <?php echo $order['SoLuong'] ?></p>
-                                        <p>Tống tiền: <?php echo $order['GiaDatHang'] ?></p>
-                                        <p>Ngày giao hàng dự kiến: <?php echo $order['NgayGH'] ?></p>
+                                        <p>Tổng tiền: <?php echo $order['GiaDatHang'] ?></p>
+                                        <p>Ngày giao hàng: <?php echo $order['NgayGH'] ?></p>
                                     </div>
 
                                     <div class="order-item-col-3 status-order">

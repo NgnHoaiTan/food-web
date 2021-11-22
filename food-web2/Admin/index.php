@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Homepage</title>
 
     <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,24 +74,16 @@
     <div class="wrapper">
         <div class="top--wrapper">
             <div class="navbar--top">
-                <div class="navbar--top__search">
-                    <input type="text" name="search" id="search">
-                    <button class="btn btn--search">Tìm tên sản phẩm</button>
-                </div>
-                <div class="navbar--top__admin">
-                    <?php if(!empty($admininfo)) { ?>
-                        <p><?php echo $admininfo['HoTenNV'] ?></p>    
-                    <?php  } else{ ?> 
-                        <p>Nguyen Hoai Tan</p>    
-                    <?php  } ?>  
-                    <div class="wrapper_avtadmin">
-                        <img src="../../image/background/admin.png" class="avtadmin"alt="">
-                    </div>
-                </div>
+                
+                
             </div>
         </div>
         <div class="main-wrapper">
-            <h2>Dashboard</h2>
+            <h2>Xin chào <?php echo $admininfo['HoTenNV'] ?></h2>
+            <div class="wrapper-background-homepage">
+                <img src="./image/background/homepage.jpg" alt="">
+            </div>
+            
         </div>
         
     </div>

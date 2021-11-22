@@ -13,7 +13,7 @@
          
      }
      else{
-         header("location:login.php");
+         header("location:../../login.php");
      }
     //Thêm category
     if(!empty($_GET['submit_add_category'])){
@@ -68,7 +68,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Category</title>
 
     <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,7 +92,7 @@
             <div class="navbar-side-container">
                 <h2>Admin</h2>
                 <ul class="navbar--list">
-                    <li class="navbar--items">
+                <li class="navbar--items">
                         <a href="../../index.php" class="nav-items-link"><i class="fas fa-tshirt product-logo"></i>Trang chủ</a>
                     </li>
                     <li class="navbar--items">
@@ -102,17 +102,20 @@
                         <a href="../order/listOrder.php"class="nav-items-link"><i class='bx bx-shopping-bag'></i>Quản lí đơn đặt hàng</a>
                     </li>
                     <li class="navbar--items">
-                        <a href="../category/category.php"class="nav-items-link"><i class="fas fa-tasks"></i>Danh mục thể loại</a>
+                        <a href="category.php"class="nav-items-link"><i class="fas fa-tasks"></i>Danh mục thể loại</a>
                     </li>
                     <li class="navbar--items">
                         <a href="../customer/listCustomer.php"class="nav-items-link"><i class='bx bx-group'></i>Khách hàng</a>
                     </li>
+                    <?php if(!empty($_SESSION['admin']) && isset($_SESSION['admin'])) {?>
                     <li class="navbar--items">
-                        <a href="../../logout.php"class="nav-items-link"><i class='bx bx-group'></i>Logout temp</a>
+                        <a href="../../logout.php"class="nav-items-link"><i class='bx bx-group'></i>Logout</a>
                     </li>
+                    <?php }else { ?>
                     <li class="navbar--items">
-                        <a href="../../login.php"class="nav-items-link"><i class='bx bx-group'></i>Login temp</a>
+                        <a href="../../login.php"class="nav-items-link"><i class='bx bx-group'></i>Login</a>
                     </li>
+                    <?php } ?>
                     
                 </ul>
             </div>
@@ -120,10 +123,7 @@
     <div class="wrapper">
         <div class="top--wrapper">
             <div class="navbar--top">
-                <div class="navbar--top__search">
-                    <input type="text" name="search" id="search">
-                    <button class="btn btn--search">Tìm thể loại hàng</button>
-                </div>
+                
                 <div class="navbar--top__admin">
                     <?php if(!empty($admininfo)) { ?>
                         <p><?php echo $admininfo['HoTenNV'] ?></p>    

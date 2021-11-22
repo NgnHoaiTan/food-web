@@ -21,7 +21,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebShop</title>
+    <title>Web Food</title>
     <!-- FONTICON -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -54,7 +54,7 @@
                             <a href="index.php">Homepage</a>
                         </li>
                         <li class="navbar-list-item">
-                            <a href="product.php">Shop</a>
+                            <a href="product.php">Food</a>
                         </li>
                         
                     </ul>
@@ -89,12 +89,12 @@
             </div>
             
             <div class="heroimage">
-                <p class="text-in-heroimg">"Fashion is very important.
+                <!-- <p class="text-in-heroimg">"Fashion is very important.
                      <br>It is life-enhancing and, like everything
                  <br> that gives pleasure, 
                      <br>it is worth doing well."
                     <br><span class="author-quote">– Vivienne Westwood</span>
-                </p>
+                </p> -->
                 <img src="./image/background/heroimage.jpg" alt="">
             </div>
             
@@ -215,10 +215,10 @@
                 <h2 class="title-info-modal">Don't Miss Out</h2>
                 <p class="des-info-modal">Signup to receive <br>Take 20% off your first purchase</p>
                 <div class="cirle-sale">
-                    <p>20%<br> 
+                    <p>10%<br> 
                     <span>Sale Off</span></p>
                 </div>
-                <button class="btn-redirect-signup"><a href="">SIGN UP NOW</a></button>
+                <button class="btn-redirect-signup"><a href="register.php">SIGN UP NOW</a></button>
                 <p class="des-info-modal">Has an account ?</p>
                 <button class="btn-redirect-login">
                     <a href="login.php">LOGIN NOW</a>                  
@@ -265,7 +265,7 @@
     </footer>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js">       
     </script>
-
+    
     <script type="text/javascript">
         $('.slider-arrival').slick({
             autoplay: true,

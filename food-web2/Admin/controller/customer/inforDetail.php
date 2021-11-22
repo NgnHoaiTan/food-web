@@ -24,7 +24,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Info customer</title>
 
     <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,17 +78,18 @@
         <div class="wrapper">
             <div class="top--wrapper">
                 <div class="navbar--top">
+                
                     <div class="navbar--top__admin">
                         <?php if(!empty($admininfo)) { ?>
-                            <p><?php echo $admininfo['HoTenNV'] ?></p>    
-                        <?php  } else{ ?> 
-                            <p>Nguyen Hoai Tan</p>    
-                        <?php  } ?>  
-                        <div class="wrapper_avtadmin">
-                            <img src="../../image/background/admin.png" class="avtadmin"alt="">
-                        </div>
+                        <p><?php echo $admininfo['HoTenNV'] ?></p>    
+                    <?php  } else{ ?> 
+                        <p>Nguyen Hoai Tan</p>    
+                    <?php  } ?>  
+                    <div class="wrapper_avtadmin">
+                        <img src="../../image/background/admin.png" class="avtadmin"alt="">
                     </div>
                 </div>
+            </div>
             </div>
             <div class="container-customer-detail">
                 <div class="wrapper-customer-detail">
@@ -96,9 +97,9 @@
                     <div class="avatar-customer">
                         <div class="avatar-wrapper">
                             <?php if(!empty($customer['Avatar'])){ ?>
-                                <img src="../../../../B1805914_NguyenHoaiTan/Banhang/image/user/<?php echo $customer['Avatar'] ?>" alt="">
+                                <img src="../../../Banhang/image/user/<?php echo $customer['Avatar'] ?>" alt="">
                             <?php }else{ ?>
-                                <img src="../../../../B1805914_NguyenHoaiTan/Banhang/image/user/user1.jpg" alt="">
+                                <img src="../../../Banhang/image/user/user1.jpg" alt="">
                             <?php } ?>
                         </div>
                         <p class="name-customer-info"><?php echo $customer['HoTenKH'] ?></p>    

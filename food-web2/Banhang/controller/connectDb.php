@@ -184,15 +184,14 @@
        
         return $quey;
     }
-    function InsertOrder($sodondh,$mskh,$ngaydh,$ngaygh,$trangthai){
+    function InsertOrder($sodondh,$mskh,$ngaydh,$trangthai){
         global $conn;
         connect_db();
-        $sql="INSERT INTO DatHang(SoDonDH,MSKH,NgayDH,NgayGH,TrangThaiDH) 
+        $sql="INSERT INTO DatHang(SoDonDH,MSKH,NgayDH,TrangThaiDH) 
             values(
                 '$sodondh',
                 '$mskh',
                 '$ngaydh',
-                '$ngaygh',
                 '$trangthai'
             )";
         
@@ -219,7 +218,16 @@
        
         return $quey;
     }
-
+    function UpdateQuantity($new_quantity, $id_product){
+        global $conn;
+        connect_db();
+        $sql = "UPDATE hanghoa SET
+        SoLuongHang =  $new_quantity   
+        WHERE MSHH = '$id_product'
+        ";
+        $query = mysqli_query($conn, $sql);
+        return $query;
+    }
     // -------------------------------Product detail ------------------------------
     function getProductById($id_product){
         global $conn;

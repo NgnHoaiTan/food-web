@@ -26,12 +26,12 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chi tiết sản phẩm</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="./assets/base.css">
@@ -71,7 +71,7 @@
                             <a href="index.php">Homepage</a>
                         </li>
                         <li class="navbar-list-item">
-                            <a href="product.php">Shop</a>
+                            <a href="product.php">Food</a>
                         </li>
                         
                     </ul>
@@ -139,24 +139,7 @@
                         <p class="desciption-detail-title">Mô tả sản phẩm:</p>
                         <?php echo $product['QuyCach'] ?>
                     </div>
-                    <!-- <div class="quantity-option-buy">
-                        <p>Số lượng</p>
-                        <div class="row">
-                            <div class="minus-quantity" id="minus-quantity">
-                                <i class="fas fa-minus"></i>
-                            </div>
-                            <p type="number" name="quantity" id="quantity-detail-buy" class="input-quantity">1</p>
-                            <div class="plus-quantity" id="plus-quantity">
-                                <i class="fas fa-plus"></i>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="row row-justify-between subtotal-option-buy">
-                        <p class="subtotal-option-title">Tạm tính:</p>
-                        <p id="subtotal-detail-buy"><?php echo $product['Gia'] ?></p>
-                        <p> vnđ</p>
-                    </div> -->
+                    
                     <div class="row row-justify-between button-option">
                         <button class="button-buy"><a href="./checkout.php?id=<?php echo $product['MSHH'] ?>" class="link_to_checkout">Mua sản phẩm</a></button>
                         <?php if(isset($_SESSION['cart'])){

@@ -9,7 +9,7 @@
          
      }
      else{
-         header("location:login.php");
+         header("location:../../login.php");
      }
     
 
@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách đơn hàng</title>
+    <title>List customer</title>
 
     <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +44,7 @@
             <div class="navbar-side-container">
                 <h2>Admin</h2>
                 <ul class="navbar--list">
-                <li class="navbar--items">
+                    <li class="navbar--items">
                         <a href="../../index.php" class="nav-items-link"><i class="fas fa-tshirt product-logo"></i>Trang chủ</a>
                     </li>
                     <li class="navbar--items">
@@ -75,11 +75,8 @@
     
     <div class="wrapper">
         <div class="top--wrapper">
-            <div class="navbar--top">
-                <div class="navbar--top__search">
-                    <input type="text" name="search" id="search">
-                    <button class="btn btn--search">Tìm đơn hàng</button>
-                </div>
+        <div class="navbar--top">
+                
                 <div class="navbar--top__admin">
                     <?php if(!empty($admininfo)) { ?>
                         <p><?php echo $admininfo['HoTenNV'] ?></p>    

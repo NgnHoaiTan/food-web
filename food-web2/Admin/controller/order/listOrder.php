@@ -76,20 +76,16 @@
     <div class="wrapper">
         <div class="top--wrapper">
             <div class="navbar--top">
-                <div class="navbar--top__search">
-                    <input type="text" name="search" id="search">
-                    <button class="btn btn--search">Tìm đơn hàng</button>
-                </div>
+                
                 <div class="navbar--top__admin">
                     <?php if(!empty($admininfo)) { ?>
                         <p><?php echo $admininfo['HoTenNV'] ?></p>    
                     <?php  } else{ ?> 
                         <p>Nguyen Hoai Tan</p>    
-                    <?php  } ?> 
+                    <?php  } ?>  
                     <div class="wrapper_avtadmin">
                         <img src="../../image/background/admin.png" class="avtadmin"alt="">
                     </div>
-                    
                 </div>
             </div>
         </div>
